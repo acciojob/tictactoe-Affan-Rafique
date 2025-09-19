@@ -47,14 +47,14 @@
 <body>
   <div class="container">
     <!-- Initial Input Form -->
-    <h1>Enter Players</h1>
+    <h1 id="heading">Enter Players</h1>
     <input type="text" id="player-1" placeholder="Player 1 Name">
     <input type="text" id="player-2" placeholder="Player 2 Name">
     <button id="submit">Start Game</button>
 
     <!-- Game Board -->
     <div id="board">
-      <h1>Tic Tac Toe</h1>
+      <h1 id="game-title">Tic Tac Toe</h1>
       <div class="message"></div>
       <div class="grid">
         <div class="cell" id="1"></div>
@@ -95,12 +95,16 @@
       player2 = player2Input.value || "Player 2";
       currentPlayer = player1;
       currentSymbol = "X";
-      document.querySelector("h1").textContent = "Tic Tac Toe";
       message.textContent = `${currentPlayer}, you're up`;
-      board.style.display = "block";
-      submitBtn.style.display = "none";
+
+      // Hide form
+      document.getElementById("heading").style.display = "none";
       player1Input.style.display = "none";
       player2Input.style.display = "none";
+      submitBtn.style.display = "none";
+
+      // Show board
+      board.style.display = "block";
     });
 
     // Handle cell click
@@ -145,3 +149,4 @@
   </script>
 </body>
 </html>
+
