@@ -48,8 +48,8 @@
   <div class="container">
     <!-- Initial Input Form -->
     <h1 id="heading">Enter Players</h1>
-    <input type="text" id="player-1" placeholder="Player 1 Name">
-    <input type="text" id="player-2" placeholder="Player 2 Name">
+    <input type="text" id="player1" placeholder="Player 1 Name">
+    <input type="text" id="player2" placeholder="Player 2 Name">
     <button id="submit">Start Game</button>
 
     <!-- Game Board -->
@@ -72,8 +72,8 @@
 
   <script>
     const submitBtn = document.getElementById("submit");
-    const player1Input = document.getElementById("player-1");
-    const player2Input = document.getElementById("player-2");
+    const player1Input = document.getElementById("player1");
+    const player2Input = document.getElementById("player2");
     const board = document.getElementById("board");
     const message = document.querySelector(".message");
     const cells = document.querySelectorAll(".cell");
@@ -91,10 +91,10 @@
 
     // Start Game
     submitBtn.addEventListener("click", () => {
-      player1 = player1Input.value || "Player 1";
-      player2 = player2Input.value || "Player 2";
+      player1 = player1Input.value || "Player1";
+      player2 = player2Input.value || "Player2";
       currentPlayer = player1;
-      currentSymbol = "X";
+      currentSymbol = "x"; // lowercase to match test
       message.textContent = `${currentPlayer}, you're up`;
 
       // Hide form
@@ -116,7 +116,7 @@
 
         // Check for win
         if (checkWin(currentSymbol)) {
-          message.textContent = `${currentPlayer}, congratulations you won!`;
+          message.textContent = `${currentPlayer} congratulations you won!`;
           gameActive = false;
           return;
         }
@@ -131,10 +131,10 @@
         // Switch turn
         if (currentPlayer === player1) {
           currentPlayer = player2;
-          currentSymbol = "O";
+          currentSymbol = "o";
         } else {
           currentPlayer = player1;
-          currentSymbol = "X";
+          currentSymbol = "x";
         }
         message.textContent = `${currentPlayer}, you're up`;
       });
